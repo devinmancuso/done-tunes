@@ -24,6 +24,13 @@ Python flask endpoint app that plays a song via iTunes using applescript wheneve
 4. Setup a webhook in Jira that points to your ngrok url e.g. xxxxxx.ngrok.com/play
 5. Start shipping tickets!
 
+**To-DO**
+
+1. Make song definition more efficient buy only assigning a song name to a user name and just substituting that variable into the applescript variable.
+2. Check the need for trailing slash route on the play route
+3. Create more routes for potential webhooks like ticket creation, bug creation, ticket re-open. 
+4. Define hilarious songs or quotes to go along with these events
+
 **Contribute**
 
 If you think this is a cool idea, but kind of inefficient, please submit a PR and let's make this better.
