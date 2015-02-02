@@ -13,7 +13,7 @@ Python flask endpoint app that plays a song via iTunes using applescript wheneve
 **Dependencies**
 
 * Flask
-* Applescript
+* [Python-Applescript](https://github.com/ohe/python-applescript)
 * ngrok
 
 **How**
