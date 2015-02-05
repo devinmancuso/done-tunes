@@ -29,6 +29,12 @@ all_script = """tell application "iTunes"
 end tell
 """
 
+# All script is to handle any team members who don't have an individual song defined
+bug_script = """tell application "iTunes"
+	play track "NewTown" of playlist "Done"
+end tell
+"""
+
 
 @app.route('/play/', methods = ['GET', 'POST', 'PATCH'])
 @app.route('/play', methods = ['GET', 'POST', 'PATCH'])
@@ -81,6 +87,16 @@ def play():
 					return "there was no user specified when this ticket was updated"
 		else:
 			return "Status not Done, do nothing"
+
+#Create a webhook that only looks at bug type tickets in your project. Then point the webhook to this route.
+@app.route('/bug/', methods = ['GET', 'POST', 'PATCH'])
+@app.route('/bug', methods = ['GET', 'POST', 'PATCH'])
+def bug():
+	try:
+		applescript.launch_script(bug_script)
+		return "playing the bug creation song"
+	except applescript.AppleScriptError:
+		return "Something has gone wrong with Applescript"
 
 if __name__ == '__main__':
 	app.debug = True
