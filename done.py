@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 #Define a song to play for each team member, this could be improved. 
 
-devin_script = """tell application "iTunes"
+teammember_script = """tell application "iTunes"
 	play track "Dont Stop Believing" of playlist "Done"
 end tell
 """
@@ -48,24 +48,24 @@ def play():
 				if (request.values.get('user_id', None)):
 					u = request.values.get('user_id', None)	
 				#checks to see which team member it is. This could be improved.
-				if (u == 'devin.mancuso'):						
+				if (u == 'user.name'):						
 					try:
-						applescript.launch_script(devin_script)
-						return "playing devin's song"
+						applescript.launch_script(teammember_script)
+						return "playing first teammember's song"
 					except applescript.AppleScriptError:
 						return "Something has gone wrong with Applescript"
 				
-				elif (u == 'justinfrost'):						
+				elif (u == 'user.name'):						
 					try:
-						applescript.launch_script(justin_script)
-						return "playing justin's song"
+						applescript.launch_script(teammember2_script)
+						return "playing teammember2's song"
 					except applescript.AppleScriptError:
 						return "Something has gone wrong with Applescript"
 				
-				elif (u == 'tim.parkinson'):						
+				elif (u == 'user.name'):						
 					try:
-						applescript.launch_script(tim_script)
-						return "playing tim's song"
+						applescript.launch_script(teammember3_script)
+						return "playing teammember3's song"
 					except applescript.AppleScriptError:
 						return "Something has gone wrong with Applescript"
 				
